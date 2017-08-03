@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+
+{% block main_cointainer %}
+
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <h1 class="display-4">Edit rule</h1>
+
+  <form action="" method="post" name="edit_alert">
+      {{ form.hidden_tag() }}
+      <p>{{ form.saving_button(class="btn btn-outline-primary") }} {{ form.goback_button(class="btn btn-outline-primary") }}</p>
+
+        <div class="form-group">
+          {{ form.text(class_="form-control col-sm-7") }}
+
+          <small id="passwordHelpInline" class="text-muted col-sm-3">{% for error in form.text.errors %}<span style="color: red;">{{ error }}</span>{% endfor %}</small>
+        </div>
+
+
+  </form>
+</main>
+
+
+{% endblock %}
+

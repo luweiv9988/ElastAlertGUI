@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+
+{% block main_cointainer %}
+
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <h1 class="display-4">Rules list</h1>
+  <form action="" method="post" name="edit_rule">
+  <form action="" method="post" name="del_rule">
+    {{ form.hidden_tag() }}
+      <p>{{ form.edit_button(class="btn btn-outline-primary") }} {{ form.del_button(class="btn btn-outline-primary") }}</p>
+
+      <div class="form-group">
+        <label for="rules_list">Rules list</label>
+        {{ form.rules_list(class="form-control col-5") }}
+      </div>
+  </form>
+</main>
+
+
+{% endblock %}
+

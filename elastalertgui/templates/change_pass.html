@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+
+{% block main_cointainer %}
+
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <h1 class="display-4">Change password</h1>
+  <form action="" method="post" name="login">
+    {{ form.hidden_tag() }}
+      <label for="old_pass">Old password</label>
+        <div class="form-group">
+          {{ form.old_pass(class_="form-control col-sm-3") }}
+
+          <small id="oldPassword" class="text-muted col-sm-3">{% for error in form.old_pass.errors %}<span style="color: red;">{{ error }}</span>{% endfor %}</small>
+        </div>
+
+      <label for="new_pass1">New password</label>
+        <div class="form-group">
+          {{ form.new_pass1(class_="form-control col-sm-3") }}
+
+          <small id="new1Password" class="text-muted col-sm-3">{% for error in form.new_pass1.errors %}<span style="color: red;">{{ error }}</span>{% endfor %}</small>
+        </div>
+
+      <label for="new_pass2">Repeat new password</label>
+        <div class="form-group">
+          {{ form.new_pass2(class_="form-control col-sm-3") }}
+
+          <small id="new2Password" class="text-muted col-sm-3">{% for error in form.new_pass2.errors %}<span style="color: red;">{{ error }}</span>{% endfor %}</small>
+        </div>
+
+        <input class="btn btn-outline-primary" type="submit" value="Change pass">
+  </form>
+</main>
+
+
+{% endblock %}
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dashboard.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='sticky-footer-navbar.css') }}">
+      
+    <title>{% block title %}Welcome{% endblock %} | Web UI for ElastAlert </title>
+
+  </head>
+
+  <body>
+    {% block top_navi %}
+    <nav class="navbar navbar50 navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--<a class="navbar-brand" href=""> </a>-->
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('overview') }}">Overview <span class="sr-only">(current)</a>
+          </li> 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Rules </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{{ url_for('rules_list') }}">List </a>
+                <a class="dropdown-item" href="{{ url_for('add_rule') }}">Add </a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Config </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{{ url_for('main_config') }}">Main config </a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Profile </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{{ url_for('change_pass') }}">Change password </a>
+              </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('logout') }}">Logout </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    {% endblock %}
+
+    <div class="container-fluid">
+      <div class="row">
+    {% block main_cointainer %}{% endblock %}  
+      </div>
+    </div>
+
+
+    {% block footer %}
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              {% for message in messages %}
+                {{ message }}
+              {% endfor %}
+          {% endif %}
+        {% endwith %} 
+        </span>
+      </div>
+    </footer>
+    {% endblock %}
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='jquery.min.js') }}"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ url_for('static', filename='ie10-viewport-bug-workaround.js') }}"></script>
+  </body>
+</html>

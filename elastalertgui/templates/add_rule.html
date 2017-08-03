@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+
+{% block main_cointainer %}
+
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <h1 class="display-4">Add new rule</h1>
+  <form action="" method="post" name="add_alert">
+      {{ form.hidden_tag() }}
+      <p>{{ form.saving_button(class="btn btn-outline-primary") }}</p>
+
+      <div class="form-group row">
+        <label for="rule-name" class="col-2 col-form-label">Rule name</label>
+          <div class="col-5">
+            {{ form.name(class="form-control") }}
+          </div>
+          <div class="col-5">
+            {% for error in form.name.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+          </div>
+      </div>
+      <div class="form-group row">
+        <label for="rule-type" class="col-2 col-form-label">Rule type</label>
+          <div class="col-5">
+            {{ form.type(class="form-control") }}
+          </div>
+          <div class="col-5">
+            {% for error in form.type.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+          </div>
+      </div>
+      <div class="form-group row">
+        <label for="index-name" class="col-2 col-form-label">Index name</label>
+          <div class="col-5">
+            {{ form.index(class="form-control") }}
+          </div>
+          <div class="col-5">
+            {% for error in form.index.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+          </div>
+      </div>
+      <div class="form-group row">
+        <label for="num-of-events" class="col-2 col-form-label">Number of events</label>
+          <div class="col-5">
+            {{ form.num_events(class="form-control") }}
+          </div>
+          <div class="col-5">
+            {% for error in form.num_events.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+          </div>
+      </div>
+      <div class="form-group row">
+        <label for="timeframe" class="col-2 col-form-label">Timeframe</label>
+          <div class="col-3">
+            {{ form.timeframe2(class="form-control") }}
+          </div>
+          <div class="col-2">
+            {{ form.timeframe(class="form-control") }}
+          </div>
+          <div class="col-2">
+            {% for error in form.timeframe.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+          </div>
+      </div>
+      <div class="form-group row">
+        <label for="filter" class="col-2 col-form-label">Filter definition</label>
+          <div class="col-5">
+            {{ form.filter(class="form-control") }}
+          </div>
+          <div class="col-5">
+            {% for error in form.filter.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+          </div>
+      </div>
+      <div class="form-group row">
+        <label for="alert" class="col-2 col-form-label">Alert type</label>
+          <div class="col-5">
+            {{ form.alert(class="form-control") }}
+          </div>
+          <div class="col-5">
+            {% for error in form.alert.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+          </div>
+      </div>
+      <div class="form-group row">
+        <label for="email" class="col-2 col-form-label">Emails list</label>
+          <div class="col-5">
+            {{ form.email(class="form-control") }}
+          </div>
+          <div class="col-5">
+          {% for error in form.email.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+          </div>
+      </div>
+
+  </form>
+</main>
+
+
+{% endblock %}
+

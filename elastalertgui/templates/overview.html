@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+
+{% block main_cointainer %}
+
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <h1 class="display-4">Overview</h1>
+  <p><h5>Rules defined: </h5></p>
+  {% for item in files %}
+  <h6>{{ item }} </h6>
+  {% endfor %}
+
+</main>
+
+
+{% endblock %}
+
