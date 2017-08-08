@@ -259,6 +259,10 @@ def add_rule():
         list_of_vars['timeframe'] = list_of_vars['timeframe2']+' '+list_of_vars['timeframe']
         list_of_vars.pop('timeframe2')
 
+        #Merge filters fileds
+        list_of_vars['filter'] = '_type: '+list_of_vars['filter']+' AND '+'"'+list_of_vars['filter2']+'"'
+        list_of_vars.pop('filter2')
+
         _filename = RULES_PATH+str(list_of_vars['name'])+'.yaml'
         save_rule(_filename,list_of_vars)
         flash('Rule added')

@@ -30,7 +30,8 @@ class User():
 class RuleObj():
 
     def __init__(self,name = '',type = '',index = '',num_events = '',
-                timeframe2 = '', timeframe = '', filter = '',alert = '',email = ''):
+                timeframe2 = '', timeframe = '', filter = '', filter2 = '',
+                alert = '',email = ''):
         self.name = name
         self.type = type
         self.index = index
@@ -38,5 +39,6 @@ class RuleObj():
         self.timeframe2 = timeframe2
         self.timeframe = timeframe
         self.filter = filter
+        self.filter2 = filter2
         self.alert = alert
         self.email = email
