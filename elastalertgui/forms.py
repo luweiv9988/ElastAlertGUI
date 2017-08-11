@@ -22,7 +22,7 @@ class RuleForm(FlaskForm):
     filter = SelectField('filter', choices=DOC_TYPES, validators=[DataRequired("Please enter filter type")])
     filter2 = StringField('filter2', default='Your Search...', validators=[DataRequired("Please enter filter query")])
     alert = SelectField('alert', choices=ALERT_TYPES, validators=[DataRequired("Please enter alert type")])
-    email = StringField('email', default='PremierEditionOps@genesys.com', validators=[DataRequired("Please enter emails addresses")])
+    email = StringField('email', default='email@domain.com', validators=[DataRequired("Please enter emails addresses")])
     saving_button = SubmitField(label='Save rule')
     goback_button = SubmitField(label='Go Back')
 

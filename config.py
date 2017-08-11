@@ -41,3 +41,5 @@ DOC_TYPES = [('apache_web_server','apache_web_server'),
             ('vom','vom'),
             ('jboss_sb_server','jboss_sb_server'),
             ('webrtc','webrtc')]
+RULE_TYPES = [('frequency','frequency')]
+ALERT_TYPES = [('email','email')]
