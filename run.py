@@ -1,2 +1,2 @@
 from elastalertgui import app
-app.run(host='x.x.x.x')
+app.run(host='0.0.0.0')
