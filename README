@@ -1,51 +1,30 @@
 
-ElastAlertGUI
-by Michal Kwapinski
+# ElastAlertGUI
+Fork by Michal Kwapinski
+Last edit by Atlantis
 
 THIS IS WORK IN PROGRESS. USE IT ON YOU OWN RESPONISBILITY.
 I'M CREATING THIS PROJECT AS MY LEARNING CURVE IN PYTHON AND PYTHON-FLASK
 
-Tested on python 2.6.6 centos6 64bit
 
-1) Customize config
-- create cakup folder eg: /opt/elastalert/backup and add path to config file
-- run db_create - it will create basic sqlite db with user table and admin:admin1 user
-
-2) python run.py to start developer web server
-
-3) Requires:
-ElastAlert
-pip install flask
-pip install flask-login
-pip install flask-wtf
-pip install argparse
-pip install pyyaml
-
---------
-
-To run on apache:
-
-1) Install httpd and mod_wsgi
+## 系统需求:
+* ElastAlert
+* sqllite3
+* pip install flask
+* pip install flask-login
+* pip install flask-wtf
+* pip install argparse
+* pip install pyyaml
 
 
-2) Create config in app directory eg:
-import sys
+## 编辑配置文件 config.py
 
-sys.path.append('/var/www/html/ElasAlertGUI/')
+- 修改 ELASTALERT 程序地址
+- 配置 DATABASE  文件地址
 
-from elastalertgui import app as application
+## 初始化数据库配置
 
+- 执行shell 脚本db_create自动创建SQL
 
-3) Create apache config eg:
-<VirtualHost *:80>
-
-<Directory /var/www/html/ElasAlertGUI/ >
-    Options Indexes FollowSymLinks
-    AllowOverride None
-    Order allow,deny
-    Allow from all
-</Directory>
-WSGIScriptAlias / /var/www/html/ElasAlertGUI/elastgui.wsgi
-
-</VirtualHost>
-
+## 启动程序（debug mode）
+- 执行 python run.py
