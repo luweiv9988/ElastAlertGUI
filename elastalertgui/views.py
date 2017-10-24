@@ -175,10 +175,11 @@ def logout():
 @app.route('/overview')
 @login_required
 def overview():
-    try:
-        files = list_files(RULES_PATH)
-    except:
-        logger.error('Cannot access rules directory.')
+    files = list_files(RULES_PATH)
+    # try:
+    #     files = list_files(RULES_PATH)
+    # except:
+    #     logger.error('Cannot access rules directory.')
     files_no_ex = []
     for x in range(len(files)):
         #remove extension
