@@ -1,5 +1,5 @@
 import sys
  
-sys.path.append('/var/www/html/ElasAlertGUI/')
+sys.path.append('/root/ElasAlertGUI/')
  
 from elastalertgui import app as application
