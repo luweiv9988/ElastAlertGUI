@@ -1,7 +1,7 @@
 
 # ElastAlertGUI
-Fork by Michal Kwapinski
-Last edit by Atlantis
+Fork From Michal Kwapinski
+Last Edit By Atlantis
 
 THIS IS WORK IN PROGRESS. USE IT ON YOU OWN RESPONISBILITY.
 I'M CREATING THIS PROJECT AS MY LEARNING CURVE IN PYTHON AND PYTHON-FLASK
