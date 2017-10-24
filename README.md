@@ -19,8 +19,8 @@ I'M CREATING THIS PROJECT AS MY LEARNING CURVE IN PYTHON AND PYTHON-FLASK
 
 ## 编辑配置文件 config.py
 
-- 修改 ELASTALERT 程序地址
-- 配置 DATABASE  文件地址
+- 修改 ElastAlert 程序地址
+- 配置 DB 文件地址
 
 ## 初始化数据库配置
 
@@ -28,3 +28,5 @@ I'M CREATING THIS PROJECT AS MY LEARNING CURVE IN PYTHON AND PYTHON-FLASK
 
 ## 启动程序（debug mode）
 - 执行 python run.py
+- login:admin/admin1
+
