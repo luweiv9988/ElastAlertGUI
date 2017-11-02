@@ -31,7 +31,7 @@ class RuleObj():
 
     def __init__(self,name = '',type = '',index = '',num_events = '',
                 timeframe2 = '', timeframe = '', filter = '', filter2 = '',
-                alert = '',email = ''):
+                alert = '',email = '',smtp_auth_file = '',smtp_host = '',smtp_port = ''):
         self.name = name
         self.type = type
         self.index = index
@@ -42,3 +42,7 @@ class RuleObj():
         self.filter2 = filter2
         self.alert = alert
         self.email = email
+        self.smtp_auth_file = smtp_auth_file
+        self.smtp_host = smtp_host
+        self.smtp_port = smtp_port
+
