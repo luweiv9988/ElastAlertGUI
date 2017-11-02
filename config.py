@@ -1,3 +1,4 @@
+#HOST_IP = 10.0.0.214
 SECRET_KEY = 'RIvJZJNplu0qr2iLmFAOMg31hRpGo/3fhfcXqmNYDE0'
 DEBUG = True
 ELASTALERT_PATH = '/opt/elastalert/'

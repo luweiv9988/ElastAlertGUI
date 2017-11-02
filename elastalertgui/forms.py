@@ -23,6 +23,11 @@ class RuleForm(FlaskForm):
     filter2 = StringField('filter2', default='Your Search...', validators=[DataRequired("Please enter filter query")])
     alert = SelectField('alert', choices=ALERT_TYPES, validators=[DataRequired("Please enter alert type")])
     email = StringField('email', default='email@domain.com', validators=[DataRequired("Please enter emails addresses")])
+    smtp_auth_file = StringField('auth',default='smtp_auth_file.yaml', validators=[DataRequired("Please enter smtp auth path")])
+    smtp_host = StringField('host',default='smtp.exmail.qq.com', validators=[DataRequired("Please enter smtp_server ip")])
+    smtp_port = StringField('port',default='25', validators=[DataRequired("Please enter smtp_server port")])
+    
+
     saving_button = SubmitField(label='Save rule')
     goback_button = SubmitField(label='Go Back')
 
