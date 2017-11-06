@@ -96,7 +96,7 @@ def save_rule(_file,_data):
         for key,value in _data.items():
             if str(key) == 'filter':
                 try:
-                    stream.write('filter:\n'+'- query:\n'+'    query_string:\n'+'       query: \''+str(value)+'\'\n')
+                    stream.write('filter:\n'+'- query_string:\n'+'       query: \''+str(value)+'\'\n')
                 except:
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
             elif str(key) == 'alert':
@@ -261,8 +261,8 @@ def add_rule():
         list_of_vars.pop('timeframe2')
 
         #Merge filters fileds
-        list_of_vars['filter'] = '_type: '+list_of_vars['filter']+' AND '+'"'+list_of_vars['filter2']+'"'
-        list_of_vars.pop('filter2')
+        # list_of_vars['filter'] = '_type: '+list_of_vars['filter']+' AND '+'"'+list_of_vars['filter2']+'"'
+        # list_of_vars.pop('filter2')
 
         _filename = RULES_PATH+str(list_of_vars['name'])+'.yaml'
         save_rule(_filename,list_of_vars)
