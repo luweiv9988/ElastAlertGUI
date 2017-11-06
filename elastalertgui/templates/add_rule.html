@@ -60,17 +60,15 @@
           </div>
       </div>
       <div class="form-group row">
-        <label for="filter" class="col-2 col-form-label">Filter definition</label>
-          <div class="col-2">
+        <label for="search-filter" class="col-2 col-form-label">Elasticsearch Condition</label>
+          <div class="col-5">
             {{ form.filter(class="form-control") }}
-          </div>
-          <div class="col-3">
-            {{ form.filter2(class="form-control") }}
           </div>
           <div class="col-5">
             {% for error in form.filter.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
           </div>
       </div>
+
       <div class="form-group row">
         <label for="alert" class="col-2 col-form-label">Alert type</label>
           <div class="col-5">
@@ -87,6 +85,33 @@
           </div>
           <div class="col-5">
           {% for error in form.email.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+          </div>
+      </div>
+      <div class="form-group row">
+        <label for="smtp-auth" class="col-2 col-form-label">SMTP Auth File</label>
+          <div class="col-5">
+            {{ form.smtp_auth_file(class="form-control") }}
+          </div>
+          <div class="col-5">
+            {% for error in form.smtp_auth_file.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+          </div>
+      </div>
+      <div class="form-group row">
+        <label for="smtp-host" class="col-2 col-form-label">SMTP Host</label>
+          <div class="col-5">
+            {{ form.smtp_host(class="form-control") }}
+          </div>
+          <div class="col-5">
+            {% for error in form.smtp_host.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+          </div>
+      </div>
+      <div class="form-group row">
+        <label for="smtp-port" class="col-2 col-form-label">SMTP Port</label>
+          <div class="col-5">
+            {{ form.smtp_port(class="form-control") }}
+          </div>
+          <div class="col-5">
+            {% for error in form.smtp_port.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
           </div>
       </div>
 
