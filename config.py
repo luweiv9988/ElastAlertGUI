@@ -1,11 +1,11 @@
 #HOST_IP = 10.0.0.214
 SECRET_KEY = 'RIvJZJNplu0qr2iLmFAOMg31hRpGo/3fhfcXqmNYDE0'
 DEBUG = True
-ELASTALERT_PATH = '/opt/elastalert/'
-DATABASE_PATH = '/root/ElastAlertGUI/database.db'
-RULES_PATH = '/opt/elastalert/rules/'
-BACKUP_PATH = '/opt/elastalert/backup/'
-MAIN_CONFIG = '/opt/elastalert/config.yaml'
-DOC_TYPES = [('test','test'),('test2','test2')]
+ELASTALERT_PATH = '/Users/hades/Documents/GitHub/elastalert'
+DATABASE_PATH = '/Users/hades/Documents/GitHub/ElastAlertGUI/database.db'
+RULES_PATH = '/Users/hades/Documents/GitHub/elastalert/rules/'
+BACKUP_PATH = '/Users/hades/Documents/GitHub/elastalert/backup/'
+MAIN_CONFIG = '/Users/hades/Documents/GitHub/elastalert/config.yaml'
+#DOC_TYPES = [('test','test'),('test2','test2')]
 RULE_TYPES = [('frequency','frequency')]
 ALERT_TYPES = [('email','email')]
