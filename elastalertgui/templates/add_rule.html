@@ -12,7 +12,7 @@
       <p>{{ form.saving_button(class="btn btn-outline-primary") }}</p>
 
       <div class="form-group row">
-        <label for="rule-name" class="col-2 col-form-label">Rule name</label>
+        <label for="rule-name" class="col-2 col-form-label">Rule Name</label>
           <div class="col-5">
             {{ form.name(class="form-control") }}
           </div>
@@ -21,7 +21,7 @@
           </div>
       </div>
       <div class="form-group row">
-        <label for="rule-type" class="col-2 col-form-label">Rule type</label>
+        <label for="rule-type" class="col-2 col-form-label">Rule Type</label>
           <div class="col-5">
             {{ form.type(class="form-control") }}
           </div>
@@ -30,7 +30,7 @@
           </div>
       </div>
       <div class="form-group row">
-        <label for="index-name" class="col-2 col-form-label">Index name</label>
+        <label for="index-name" class="col-2 col-form-label">Index Name</label>
           <div class="col-5">
             {{ form.index(class="form-control") }}
           </div>
@@ -39,7 +39,7 @@
           </div>
       </div>
       <div class="form-group row">
-        <label for="num-of-events" class="col-2 col-form-label">Number of events</label>
+        <label for="num-of-events" class="col-2 col-form-label">Number Of Events</label>
           <div class="col-5">
             {{ form.num_events(class="form-control") }}
           </div>
@@ -68,9 +68,8 @@
             {% for error in form.filter.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
           </div>
       </div>
-
       <div class="form-group row">
-        <label for="alert" class="col-2 col-form-label">Alert type</label>
+        <label for="alert" class="col-2 col-form-label">Alert Type</label>
           <div class="col-5">
             {{ form.alert(class="form-control") }}
           </div>
@@ -79,42 +78,23 @@
           </div>
       </div>
       <div class="form-group row">
-        <label for="email" class="col-2 col-form-label">Emails list</label>
+        <label for="alert_subject" class="col-2 col-form-label">Alert_Subject Type</label>
           <div class="col-5">
-            {{ form.email(class="form-control") }}
+            {{ form.alert_subject(class="form-control") }}
           </div>
           <div class="col-5">
-          {% for error in form.email.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
-          </div>
-      </div>
-      <div class="form-group row">
-        <label for="smtp-auth" class="col-2 col-form-label">SMTP Auth File</label>
-          <div class="col-5">
-            {{ form.smtp_auth_file(class="form-control") }}
-          </div>
-          <div class="col-5">
-            {% for error in form.smtp_auth_file.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+            {% for error in form.alert_subject.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
           </div>
       </div>
       <div class="form-group row">
-        <label for="smtp-host" class="col-2 col-form-label">SMTP Host</label>
+        <label for="alert_subject_args" class="col-2 col-form-label">Alert_Subject_Args Type</label>
           <div class="col-5">
-            {{ form.smtp_host(class="form-control") }}
+            {{ form.alert_subject_args(class="form-control") }}
           </div>
           <div class="col-5">
-            {% for error in form.smtp_host.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
-          </div>
-      </div>
-      <div class="form-group row">
-        <label for="smtp-port" class="col-2 col-form-label">SMTP Port</label>
-          <div class="col-5">
-            {{ form.smtp_port(class="form-control") }}
-          </div>
-          <div class="col-5">
-            {% for error in form.smtp_port.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+            {% for error in form.alert_subject_args.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
           </div>
       </div>
-
   </form>
 </main>
 

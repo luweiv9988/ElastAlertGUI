@@ -96,22 +96,23 @@ def save_rule(_file,_data):
         for key,value in _data.items():
             if str(key) == 'filter':
                 try:
-                    stream.write('filter:\n'+'- query_string:\n'+'       query: \''+str(value)+'\'\n')
+                    stream.write('filter:\n'+'- query_string:\n'+'       query: \''+str(value)+'\'\n'+'\n')
                 except:
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
             elif str(key) == 'alert':
                 try:
-                    stream.write('alert:\n'+'- "email"\n')
+                    stream.write('alert:\n'+'- '+str(value)+'\n'+'\n')
                 except:
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
-            elif str(key) == 'email':
-                try:
-                    stream.write('email:\n'+'- '+'"'+str(value)+'"\n')
-                except:
-                    logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
+            # disble email configure
+            # elif str(key) == 'email':
+            #     try:
+            #         stream.write('email:\n'+'- '+'"'+str(value)+'"\n')
+            #     except:
+            #         logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
             elif ': ' in str(value):
                 try:
-                    stream.write(str(key)+': \n'+'  '+str(value)+'\n')
+                    stream.write(str(key)+': \n'+'  '+str(value)+'\n'+'\n')
                 except:
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
             elif str(key) == 'saving_button' or str(key) == 'reading_button' or str(key) == 'goback_button':
@@ -121,7 +122,7 @@ def save_rule(_file,_data):
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
             else:
                 try:
-                    stream.write(str(key)+': '+str(value)+'\n')
+                    stream.write(str(key)+': '+str(value)+'\n'+'\n')
                 except:
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
 
