@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, TextAreaField
 from wtforms.validators import DataRequired
-#from config import DOC_TYPES, RULE_TYPES, ALERT_TYPES
+from config import RULE_TYPES, ALERT_TYPES, INDEX_TYPES
 from config import RULE_TYPES, ALERT_TYPES
 
 class LoginForm(FlaskForm):
@@ -16,21 +16,19 @@ class PassChangeForm(FlaskForm):
 class RuleForm(FlaskForm):
     name = StringField('name', validators=[DataRequired("Please enter rule name")])
     type = SelectField('type', choices=RULE_TYPES, validators=[DataRequired("Please enter rule type")])
-    index = StringField('index', default='logstash-supplier-log-*', validators=[DataRequired("Please enter index name")])
-    num_events = StringField('num_events', default='1', validators=[DataRequired("Please enter num events")])
+    index = SelectField('index', choices=INDEX_TYPES, validators=[DataRequired("Please choose index name")])
+    num_events = StringField('num_events', default='10', validators=[DataRequired("Please enter num events")])
     timeframe = StringField('timeframe', default='1', validators=[DataRequired("Please enter time frame")])
     timeframe2 = SelectField('timeframe2', choices=[('seconds:', 'seconds'), ('minutes:', 'minutes'), ('hours:', 'hours'), ('days:', 'days'), ('weeks:', 'weeks')], validators=[DataRequired()])
     filter = StringField('filter', default='http:404', validators=[DataRequired("Please enter Elasticsearch Condition")])
-    ## just remove one filed ,it will be add in next version
+    # add filter more
     #filter = SelectField('filter', choices=DOC_TYPES, validators=[DataRequired("Please enter filter type")]) 
     #filter2 = StringField('filter2', default='Your Search...', validators=[DataRequired("Please enter filter query")])
-    alert = SelectField('alert', choices=ALERT_TYPES, validators=[DataRequired("Please enter alert type")])
-    email = StringField('email', default='luwei@think-land.com', validators=[DataRequired("Please enter emails addresses")])
-    smtp_auth_file = StringField('smtp_auth_file',default='smtp_auth_file.yaml', validators=[DataRequired("Please enter smtp auth path")])
-    smtp_host = StringField('smtp_host',default='smtp.exmail.qq.com', validators=[DataRequired("Please enter smtp_server ip")])
-    smtp_port = StringField('smtp_port',default='25', validators=[DataRequired("Please enter smtp_server port")])
-
-
+    
+    alert = SelectField('alert', choices=ALERT_TYPES, validators=[DataRequired("Please choose alert type")])
+    alert_subject = StringField('alert_subject', default='Issue:{0} http_status:{1}', validators=[DataRequired("Please enter alert_subject")])
+    alert_subject_args = StringField('alert_subject_args',default='', validators=[DataRequired("Please enter alert_subject_args")])
+    
     saving_button = SubmitField(label='Save rule')
     goback_button = SubmitField(label='Go Back')
 
