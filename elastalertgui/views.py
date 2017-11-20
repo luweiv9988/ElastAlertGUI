@@ -1,4 +1,5 @@
-#coding=utf-8 
+#coding=utf-8
+
 from flask import render_template, url_for, redirect, request, flash, g, session
 from flask_login import login_user, logout_user, login_required, current_user
 from elastalertgui import app, login_manager, logger
@@ -97,7 +98,7 @@ def save_rule(_file,_data):
         for key,value in _data.items():
             if str(key) == 'name':
                 try:
-                    stream.write(str(key)+': '+str(value)+'\n')
+                    stream.write(str(key)+': '+str(value))
                 except:
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
 
@@ -108,12 +109,6 @@ def save_rule(_file,_data):
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
 
             elif str(key) == 'index':
-                try:
-                    stream.write(str(key)+': '+str(value)+'\n')
-                except:
-                    logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
-            
-            elif str(key) == 'num_events':
                 try:
                     stream.write(str(key)+': '+str(value)+'\n')
                 except:

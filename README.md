@@ -1,4 +1,3 @@
-
 # ElastAlertGUI
 Fork From Michal Kwapinski
 Last Edit By Atlantis
