@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, TextAreaField
 from wtforms.validators import DataRequired
 from config import RULE_TYPES, ALERT_TYPES, INDEX_TYPES
-from config import RULE_TYPES, ALERT_TYPES
+from config import RULE_TYPES, ALERT_TYPES, API_ID, SUPPLIER_ID
 
 class LoginForm(FlaskForm):
     user_login = StringField('user_login', validators=[DataRequired("Please enter your login")])
@@ -20,15 +20,12 @@ class RuleForm(FlaskForm):
     num_events = StringField('num_events', default='10', validators=[DataRequired("Please enter num events")])
     timeframe = StringField('timeframe', default='1', validators=[DataRequired("Please enter time frame")])
     timeframe2 = SelectField('timeframe2', choices=[('seconds:', 'seconds'), ('minutes:', 'minutes'), ('hours:', 'hours'), ('days:', 'days'), ('weeks:', 'weeks')], validators=[DataRequired()])
-    filter = StringField('filter', default='http:404', validators=[DataRequired("Please enter Elasticsearch Condition")])
-    # add filter more
-    #filter = SelectField('filter', choices=DOC_TYPES, validators=[DataRequired("Please enter filter type")]) 
-    #filter2 = StringField('filter2', default='Your Search...', validators=[DataRequired("Please enter filter query")])
-    
+    supplierId = SelectField('supplierId', choices=SUPPLIER_ID, validators=[DataRequired("Please enter apiId query")])
+    apiId = SelectField('apiId', choices=API_ID, validators=[DataRequired("Please enter apiId query")])
+    filter = StringField('filter', default='curlErrMsg:CURLE_OPERATION_TIMEDOUT', validators=[DataRequired("Please enter Kibana query")])  
     alert = SelectField('alert', choices=ALERT_TYPES, validators=[DataRequired("Please choose alert type")])
     alert_subject = StringField('alert_subject', default='Issue:{0} http_status:{1}', validators=[DataRequired("Please enter alert_subject")])
-    alert_subject_args = StringField('alert_subject_args',default='', validators=[DataRequired("Please enter alert_subject_args")])
-    
+    alert_subject_args = StringField('alert_subject_args',default='', validators=[DataRequired("Please enter alert_subject_args")])  
     saving_button = SubmitField(label='Save rule')
     goback_button = SubmitField(label='Go Back')
 

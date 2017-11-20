@@ -1,3 +1,4 @@
+#coding=utf-8 
 from flask import render_template, url_for, redirect, request, flash, g, session
 from flask_login import login_user, logout_user, login_required, current_user
 from elastalertgui import app, login_manager, logger
@@ -30,7 +31,7 @@ def query_db(query, args=(), one=False):
     cur = get_db().execute(query, args)
     rv = cur.fetchall()
     cur.close()
-    return (rv[0] if rv else None) if one else rv
+    return (rv[0] if rv else None) if one else rvFadd
 
 def update_db(query, args=()):
     cur = get_db().execute(query, args)
@@ -94,35 +95,69 @@ def save_file(_file,_data):
 def save_rule(_file,_data):
     with open(_file, 'w+') as stream:
         for key,value in _data.items():
-            if str(key) == 'filter':
+            if str(key) == 'name':
                 try:
-                    stream.write('filter:\n'+'- query_string:\n'+'       query: \''+str(value)+'\'\n'+'\n')
+                    stream.write(str(key)+': '+str(value)+'\n')
                 except:
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
+
+            elif str(key) == 'type':
+                try:
+                    stream.write(str(key)+': '+str(value)+'\n')
+                except:
+                    logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
+
+            elif str(key) == 'index':
+                try:
+                    stream.write(str(key)+': '+str(value)+'\n')
+                except:
+                    logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
+            
+            elif str(key) == 'num_events':
+                try:
+                    stream.write(str(key)+': '+str(value)+'\n')
+                except:
+                    logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
+            
+            elif str(key) == 'num_events':
+                try:
+                    stream.write(str(key)+': '+str(value)+'\n')
+                except:
+                    logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
+
+            elif str(key) == 'timeframe':
+                try:
+                    stream.write(str(key)+': '+str(value)+'\n')
+                except:
+                    logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
+
+            elif str(key) == 'filter_plus':
+                try:
+                    stream.write('filter:\n'+'- query_string:\n'+'       query: \''+str(value)+'\'\n')
+                except:
+                    logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
+
             elif str(key) == 'alert':
                 try:
-                    stream.write('alert:\n'+'- '+str(value)+'\n'+'\n')
+                    stream.write(str(key)+': '+str(value)+'\n')
                 except:
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
-            # disble email configure
-            # elif str(key) == 'email':
-            #     try:
-            #         stream.write('email:\n'+'- '+'"'+str(value)+'"\n')
-            #     except:
-            #         logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
-            elif ': ' in str(value):
+
+            elif str(key) == 'alert_subject':
                 try:
-                    stream.write(str(key)+': \n'+'  '+str(value)+'\n'+'\n')
+                    stream.write(str(key)+': '+str(value)+'\n')
                 except:
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
+
+            elif str(key) == 'alert_subject_args':
+                try:
+                    stream.write(str(key)+': '+str(value)+'\n')
+                except:
+                    logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
+
             elif str(key) == 'saving_button' or str(key) == 'reading_button' or str(key) == 'goback_button':
                 try:
                     stream.write('\n')
-                except:
-                    logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
-            else:
-                try:
-                    stream.write(str(key)+': '+str(value)+'\n'+'\n')
                 except:
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
 
@@ -250,7 +285,9 @@ def edit_rule(name):
 @app.route('/add_rule', methods=['GET', 'POST'])
 @login_required
 def add_rule():
-    rule_obj = RuleObj()
+    ## 实例化RuleObj类
+    rule_obj = RuleObj() 
+    ## 实例化RuleForm类
     form = RuleForm()
 
     if request.method == 'POST' and form.validate():
@@ -262,8 +299,8 @@ def add_rule():
         list_of_vars.pop('timeframe2')
 
         #Merge filters fileds
-        # list_of_vars['filter'] = '_type: '+list_of_vars['filter']+' AND '+'"'+list_of_vars['filter2']+'"'
-        # list_of_vars.pop('filter2')
+        list_of_vars['filter_plus'] = 'supplierId'+':'+list_of_vars['supplierId']+' AND '+'apiId'+':'+list_of_vars['apiId']+' AND '+list_of_vars['filter']
+        list_of_vars.pop('filter')
 
         _filename = RULES_PATH+str(list_of_vars['name'])+'.yaml'
         save_rule(_filename,list_of_vars)

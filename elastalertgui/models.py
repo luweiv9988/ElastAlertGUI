@@ -30,14 +30,16 @@ class User():
 class RuleObj():
 
     def __init__(self,name = '',type = '',index = '',num_events = '',
-                timeframe2 = '', timeframe = '', filter = '', alert_subject = '',
-                alert_subject_args = '', alert = ''):
+                timeframe2 = '', timeframe = '', supplierId = '', apiId = '', 
+                filter = '', alert_subject = '', alert_subject_args = '', alert = ''):
         self.name = name
         self.type = type
         self.index = index
         self.num_events = num_events
         self.timeframe2 = timeframe2
         self.timeframe = timeframe
+        self.supplierId = supplierId
+        self.apiId = apiId
         self.filter = filter
         self.alert = alert
         self.alert_subject = alert_subject

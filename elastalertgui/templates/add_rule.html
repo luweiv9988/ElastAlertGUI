@@ -49,10 +49,10 @@
       </div>
       <div class="form-group row">
         <label for="timeframe" class="col-2 col-form-label">Timeframe</label>
-          <div class="col-3">
+          <div class="col-2">
             {{ form.timeframe2(class="form-control") }}
           </div>
-          <div class="col-2">
+          <div class="col-3">
             {{ form.timeframe(class="form-control") }}
           </div>
           <div class="col-2">
@@ -61,10 +61,16 @@
       </div>
       <div class="form-group row">
         <label for="search-filter" class="col-2 col-form-label">Elasticsearch Condition</label>
+          <div class="col-2">
+            {{ form.supplierId(class="form-control") }}
+          </div>
+          <div class="col-1">
+            {{ form.apiId(class="form-control") }}
+          </div>
           <div class="col-5">
             {{ form.filter(class="form-control") }}
           </div>
-          <div class="col-5">
+          <div class="col-3">
             {% for error in form.filter.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
           </div>
       </div>
