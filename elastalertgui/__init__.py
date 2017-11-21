@@ -1,4 +1,6 @@
-#coding=utf-8 
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+
 from flask import Flask
 from flask_login import LoginManager
 import logging

@@ -61,13 +61,13 @@
       </div>
       <div class="form-group row">
         <label for="search-filter" class="col-2 col-form-label">Elasticsearch Condition</label>
-          <div class="col-2">
+          <div class="col-1">
             {{ form.supplierId(class="form-control") }}
           </div>
           <div class="col-1">
             {{ form.apiId(class="form-control") }}
           </div>
-          <div class="col-5">
+          <div class="col-3">
             {{ form.filter(class="form-control") }}
           </div>
           <div class="col-3">
@@ -93,12 +93,12 @@
           </div>
       </div>
       <div class="form-group row">
-        <label for="alert_subject_args" class="col-2 col-form-label">Alert_Subject_Args Type</label>
+        <label for="alert_text" class="col-2 col-form-label">Alert_Text Type</label>
           <div class="col-5">
-            {{ form.alert_subject_args(class="form-control") }}
+            {{ form.alert_text(class="form-control") }}
           </div>
           <div class="col-5">
-            {% for error in form.alert_subject_args.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
+            {% for error in form.alert_text.errors %} <span style="color: red;">[{{ error }}] {% endfor %}</span>
           </div>
       </div>
   </form>

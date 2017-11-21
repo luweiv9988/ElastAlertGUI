@@ -1,4 +1,5 @@
-#coding=utf-8
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
 
 from flask import render_template, url_for, redirect, request, flash, g, session
 from flask_login import login_user, logout_user, login_required, current_user
@@ -13,6 +14,7 @@ import sqlite3
 import hashlib
 import yaml
 import shutil
+
 
 # DB
 def get_db():
@@ -122,7 +124,7 @@ def save_rule(_file,_data):
 
             elif str(key) == 'timeframe':
                 try:
-                    stream.write(str(key)+': '+str(value)+'\n')
+                    stream.write(str(key)+': '+str(value))
                 except:
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
 
@@ -144,7 +146,7 @@ def save_rule(_file,_data):
                 except:
                     logger.error('Error writing: '+str(key)+': '+str(value)+'\n', exc_info=True)
 
-            elif str(key) == 'alert_subject_args':
+            elif str(key) == 'alert_text':
                 try:
                     stream.write(str(key)+': '+str(value)+'\n')
                 except:

@@ -1,4 +1,5 @@
-#coding=utf-8
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
 
 class User():
 
@@ -33,7 +34,7 @@ class RuleObj():
 
     def __init__(self,name = '',type = '',index = '',num_events = '',
                 timeframe2 = '', timeframe = '', supplierId = '', apiId = '', 
-                filter = '', alert_subject = '', alert_subject_args = '', alert = ''):
+                filter = '', alert_subject = '', alert = '', alert_text = '',):
         self.name = name
         self.type = type
         self.index = index
@@ -45,4 +46,4 @@ class RuleObj():
         self.filter = filter
         self.alert = alert
         self.alert_subject = alert_subject
-        self.alert_subject_args = alert_subject_args
+        self.alert_text = alert_text
