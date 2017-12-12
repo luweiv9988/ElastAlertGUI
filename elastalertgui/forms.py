@@ -27,8 +27,8 @@ class RuleForm(FlaskForm):
     apiId = SelectField('apiId', choices=API_ID, validators=[DataRequired("Please enter apiId query")])
     filter = StringField('filter', default='curlErrMsg:CURLE_OPERATION_TIMEDOUT', validators=[DataRequired("Please enter Kibana query")])  
     alert = SelectField('alert', choices=ALERT_TYPES, validators=[DataRequired("Please choose alert type")])
-    alert_subject = StringField('alert_subject', default='供应商日志报警:{0} http_status:{1}', validators=[DataRequired("Please enter alert_subject")])
-    alert_text = StringField('alert_text',default='供应商:{0} apiid:{1} 2分钟reqtime大于8秒发生至少10次', validators=[DataRequired("Please enter alert_text")])
+    alert_subject = StringField('alert_subject', default='供应商日志报警:{0} ---> apiId:{1} 发生请求超时', validators=[DataRequired("Please enter alert_subject")])
+    alert_text = StringField('alert_text',default='---> 供应商名称:{0} 供应商ID:{1} apiId:{2} 在2分钟内reqtime大于8秒发生至少10次', validators=[DataRequired("Please enter alert_text")])
     saving_button = SubmitField(label='Save rule')
     goback_button = SubmitField(label='Go Back')
 
